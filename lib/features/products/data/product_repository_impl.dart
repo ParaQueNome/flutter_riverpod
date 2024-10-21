@@ -13,7 +13,7 @@ class ProductRepositoryImpl implements ProductRepository{
 
   Future<List<String>> findAll() async{
     final response = await dio.get('/categories');
-    return[for(final category in response.data as List) category.toString()];
+    return[for(final category in response.data as List) category['name'].toString()];
 
   }
 }
